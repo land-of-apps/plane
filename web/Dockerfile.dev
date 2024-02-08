@@ -9,4 +9,4 @@ RUN yarn global add turbo
 RUN yarn install
 EXPOSE 3000
 VOLUME [ "/app/node_modules", "/app/web/node_modules" ]
-CMD ["yarn", "dev", "--filter=web"]
+CMD ["npx", "appmap-node", "yarn", "dev", "--filter=web"]

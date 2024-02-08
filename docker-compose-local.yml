@@ -55,6 +55,7 @@ services:
       - dev_env
     volumes:
       - ./web:/app/web
+      - ./tmp/appmap:/app/tmp/appmap 
     env_file:
       - ./web/.env
     depends_on:
@@ -70,6 +71,7 @@ services:
       - dev_env
     volumes:
       - ./space:/app/space
+      - ./tmp/appmap:/app/tmp/appmap 
     depends_on:
       - api
       - worker
@@ -86,6 +88,7 @@ services:
       - dev_env
     volumes:
       - ./apiserver:/code
+      - ./tmp/appmap:/code/tmp/appmap
     command: ./bin/takeoff.local
     env_file:
       - ./apiserver/.env
@@ -104,6 +107,7 @@ services:
       - dev_env
     volumes:
       - ./apiserver:/code
+      - ./tmp/appmap:/code/tmp/appmap
     command: ./bin/worker
     env_file:
       - ./apiserver/.env
@@ -123,6 +127,7 @@ services:
       - dev_env
     volumes:
       - ./apiserver:/code
+      - ./tmp/appmap:/code/tmp/appmap
     command: ./bin/beat
     env_file:
       - ./apiserver/.env
